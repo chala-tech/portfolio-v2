@@ -1,6 +1,7 @@
 export default function About() {
   return (
-    <section className="w-full bg-bg-soft px-6 py-20 md:py-32">
+    <section id="about" className="w-full bg-bg-soft px-6 py-20 md:py-32">
+      
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 md:flex-row md:items-start">
         {/* photo */}
         <div className="h-40 w-40 flex-shrink-0 overflow-hidden rounded-full border-2 border-accent md:h-56 md:w-56">

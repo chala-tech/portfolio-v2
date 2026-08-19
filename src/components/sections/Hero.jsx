@@ -2,7 +2,7 @@ import Scene from "../three/Scene";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-bg">
+    <section id="home" className="relative h-screen w-full overflow-hidden bg-bg">
       {/* 3D background */}
       <div className="absolute inset-0">
         <Scene />
