@@ -15,8 +15,8 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div ref={dotRef} className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-2 w-2 rounded-full bg-accent md:block" />
-      <div ref={ringRef} className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-8 w-8 rounded-full border border-accent/50 transition-transform duration-150 ease-out md:block" />
+      <div ref={dotRef} className="pointer-events-none fixed left-0 top-0 z-[300] hidden h-2 w-2 rounded-full bg-accent md:block" />
+      <div ref={ringRef} className="pointer-events-none fixed left-0 top-0 z-[300] hidden h-8 w-8 rounded-full border border-accent/50 transition-transform duration-150 ease-out md:block" />
     </>
   );
 }
