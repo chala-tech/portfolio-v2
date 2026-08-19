@@ -1,8 +1,10 @@
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
@@ -15,17 +17,21 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <span className="text-lg font-bold text-text">CF</span>
 
-        <div className="hidden gap-8 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <a key={link.label} href={link.href} className="text-sm text-text-muted transition hover:text-accent">
               {link.label}
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
-        <button onClick={() => setOpen(!open)} className="text-text md:hidden" aria-label="Toggle menu">
-          {open ? "✕" : "☰"}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button onClick={() => setOpen(!open)} className="text-text" aria-label="Toggle menu">
+            {open ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
 
       {open && (
