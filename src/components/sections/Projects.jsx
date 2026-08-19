@@ -1,22 +1,30 @@
+import { motion } from "framer-motion";
 import { projects } from "../../data/projects";
 import ProjectCard from "./ProjectCard";
+import { fadeUp, staggerContainer } from "../../hooks/useScrollAnimation";
 
 export default function Projects() {
   return (
     <section id="projects" className="w-full bg-bg px-6 py-20 md:py-32">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-center text-2xl font-bold text-text md:text-3xl">
-          Projects
-        </h2>
-        <p className="mt-2 text-center text-text-muted">
-          Things I've built to solve real problems.
-        </p>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeUp}>
+          <h2 className="text-center text-2xl font-bold text-text md:text-3xl">Projects</h2>
+          <p className="mt-2 text-center text-text-muted">Things I've built to solve real problems.</p>
+        </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <motion.div
+          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={staggerContainer}
+        >
           {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+            <motion.div key={project.title} variants={fadeUp}>
+              <ProjectCard {...project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
