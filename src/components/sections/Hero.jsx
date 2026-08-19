@@ -1,17 +1,41 @@
-import Scene from "../three/Scene";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative flex h-screen w-full flex-col items-center overflow-hidden bg-bg md:flex-row">
-      <div className="z-10 flex flex-1 flex-col items-center justify-center px-6 text-center md:items-start md:px-16 md:text-left">
-        <h1 className="text-4xl font-bold text-text md:text-6xl">Chala Fokora</h1>
-        <p className="mt-4 text-lg text-accent md:text-2xl">Full-Stack Developer</p>
-        <p className="mt-6 max-w-md text-text-muted">Building modern, dynamic web experiences.</p>
-      </div>
+    <section id="home" className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-bg px-6 py-32 text-center">
+      {/* subtle background grid */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-      <div className="h-[45vh] w-full flex-1 md:h-full">
-        <Scene />
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative z-10 flex flex-col items-center"
+      >
+        <div className="h-28 w-28 overflow-hidden rounded-full border-2 border-accent md:h-36 md:w-36">
+          <img src="/src/assets/images/profile.jpg" alt="Chala Fokora" className="h-full w-full object-cover" />
+        </div>
+
+        <p className="mt-6 text-sm uppercase tracking-[0.3em] text-accent">Full-Stack Developer</p>
+
+        <h1 className="mt-3 text-5xl font-bold leading-tight text-text sm:text-6xl md:text-7xl">
+          Hi, I'm Chala Fokora
+        </h1>
+
+        <p className="mt-6 max-w-xl text-base text-text-muted md:text-lg">
+          I'm an Electrical & Computer Engineering student at Addis Ababa University who builds
+          full-stack web applications — from marketplaces to logistics platforms.
+        </p>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="#projects" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-bg transition hover:opacity-90">
+            View My Work
+          </a>
+          <a href="#contact" className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-text transition hover:border-accent hover:text-accent">
+            Get In Touch
+          </a>
+        </div>
+      </motion.div>
     </section>
   );
 }
