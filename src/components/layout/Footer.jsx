@@ -9,11 +9,14 @@ export default function Footer() {
         <p className="text-sm text-text-muted">© {year} Chala Fokora. Built with React, Tailwind & Three.js.</p>
 
         <div className="flex gap-4">
-          {socials.map((social) => (
-            <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="text-sm text-text-muted transition hover:text-accent">
-              {social.label}
-            </a>
-          ))}
+          {socials.map((social) => {
+            const Icon = social.icon;
+            return (
+              <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" title={social.label} className="text-lg text-text-muted transition hover:scale-110" onMouseEnter={(e) => (e.currentTarget.style.color = social.color)} onMouseLeave={(e) => (e.currentTarget.style.color = "")}>
+                <Icon />
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>
