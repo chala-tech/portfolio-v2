@@ -1,36 +1,41 @@
-import Loader from "./components/layout/Loader";
-import CustomCursor from "./components/layout/CustomCursor";
-import ScrollProgress from "./components/layout/ScrollProgress";
-import SmoothScroll from "./components/layout/SmoothScroll";
-import CursorGlow from "./components/layout/CursorGlow";
-import Navbar from "./components/layout/Navbar";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Skills from "./components/sections/Skills";
-import Achievements from "./components/sections/Achievements";
-import Projects from "./components/sections/Projects";
-import Contact from "./components/sections/Contact";
-import Footer from "./components/layout/Footer";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { achievements } from "../../data/achievements";
+import CertificateModal from "./CertificateModal";
+import { fadeUp, staggerContainer } from "../../hooks/useScrollAnimation";
 
-function App() {
+export default function Achievements() {
+  const [selected, setSelected] = useState(null);
+
   return (
-    <SmoothScroll>
-      <main className="relative min-h-screen overflow-hidden bg-bg">
-        <Loader />
-        <CustomCursor />
-        <ScrollProgress />
-        <CursorGlow />
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Achievements />
-        <Projects />
-        <Contact />
-        <Footer />
-      </main>
-    </SmoothScroll>
+    <section id="achievements" className="w-full bg-bg-soft px-6 py-20 md:py-32">
+      <div className="mx-auto max-w-5xl">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeUp}>
+          <h2 className="text-center text-2xl font-bold text-text md:text-3xl">Achievements</h2>
+          <p className="mt-2 text-center text-text-muted">Certifications and recognitions.</p>
+        </motion.div>
+
+        <motion.div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-5" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={staggerContainer}>
+          {achievements.map((item) => (
+            <motion.div
+              key={item.title + item.subtitle}
+              variants={fadeUp}
+              onClick={() => setSelected(item)}
+              className="group cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-bg transition hover:border-accent/50"
+            >
+              <div className="aspect-[4/3] w-full overflow-hidden bg-black/20">
+                <img src={item.image} alt={item.title} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+              </div>
+              <div className="p-3 text-center">
+                <p className="text-xs font-medium text-text">{item.title}</p>
+                <p className="text-[11px] text-text-muted">{item.subtitle}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      <CertificateModal certificate={selected} onClose={() => setSelected(null)} />
+    </section>
   );
 }
-
-export default App;

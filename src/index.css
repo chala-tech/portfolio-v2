@@ -24,8 +24,6 @@ html.light {
   --color-text-muted: #475569;
 }
 
-@media (pointer: fine) {
-  * {
-    cursor: none;
-  }
+html.has-fine-pointer * {
+  cursor: none;
 }
