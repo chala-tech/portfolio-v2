@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="w-full bg-bg-soft px-6 py-20 md:py-32">
       <motion.div className="mx-auto flex max-w-4xl flex-col items-center gap-10 md:flex-row md:items-start" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeUp}>
         <div className="h-40 w-40 flex-shrink-0 overflow-hidden rounded-full border-2 border-accent md:h-56 md:w-56">
-          <img src="/src/assets/images/profile.jpg" alt="Chala Fokora" className="h-full w-full object-cover" />
+          <img src="/images/profile.jpg" alt="Chala Fokora" className="h-full w-full object-cover" />
         </div>
 
         <div className="text-center md:text-left">

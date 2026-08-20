@@ -11,7 +11,7 @@ export default function Hero() {
 
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="relative z-10 flex flex-col items-center">
         <div className="h-28 w-28 overflow-hidden rounded-full border-2 border-accent md:h-36 md:w-36">
-          <img src="/src/assets/images/profile.jpg" alt="Chala Fokora" className="h-full w-full object-cover" />
+          <img src="/images/profile.jpg" alt="Chala Fokora" className="h-full w-full object-cover" />
         </div>
 
         <p className="mt-6 h-5 text-sm uppercase tracking-[0.3em] text-accent">{role}<span className="animate-pulse">|</span></p>
