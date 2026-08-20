@@ -17,7 +17,7 @@ export default function Hero() {
         <p className="mt-6 h-5 text-sm uppercase tracking-[0.3em] text-accent">{role}<span className="animate-pulse">|</span></p>
         <h1 className="mt-3 text-5xl font-bold leading-tight text-text sm:text-6xl md:text-7xl">Hi, I'm Chala Fokora</h1>
         <p className="mt-6 max-w-xl text-base text-text-muted md:text-lg">
-          I'm an Electrical & Computer Engineering student at Addis Ababa University who builds full-stack web applications — from marketplaces to logistics platforms.
+          I'm an Electrical & Computer Engineering student at Addis Ababa University who builds full-stack web applications.
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
